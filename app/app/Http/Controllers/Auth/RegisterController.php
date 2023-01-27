@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -51,10 +52,25 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'image' => ['string', 'max:1024','mimes:jpg,jpeg,png,gif'],
+            'profile' => ['required', 'string', 'max:300'],
+            'role' => ['required', 'integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
+    public function upload(Request $request)
+    {
+        // ディレクトリ名
+        $dir = 'icon';
+
+        // iconディレクトリに画像を保存
+        $request->file('image')->store('public/' . $dir);
+
+        return redirect('/');
+    }
+   
 
     /**
      * Create a new user instance after a valid registration.
@@ -66,6 +82,9 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'image' => $data['image'] ?? null,
+            'profile' => $data['profile'],
+            'role' => $data['role'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
