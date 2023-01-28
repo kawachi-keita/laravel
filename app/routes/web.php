@@ -16,7 +16,9 @@
 // });
 
 Auth::routes();
-
+// Route::get('/', function () {
+//     return view('house_main');
+// });
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/register','RegistController@houseRegister')->name('house.register');
 Route::get('/guest/register','RegistController@guestRegister')->name('guest.register');

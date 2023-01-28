@@ -28,6 +28,12 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function redirectPath()
+    {
+        /**　ログイン後メインページに飛ぶ */
+        return '/house_main';
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -37,4 +43,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
 }

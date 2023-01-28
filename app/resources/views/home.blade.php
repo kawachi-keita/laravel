@@ -16,11 +16,7 @@
 
                     新規登録が完了しました！
                 </div>
-                <div class="form-group row mx-auto">
-                    <a href="{{ url('/login') }}">
-                        {{ __('ログイン画面へ') }}
-                    </a>
-                </div>
+                
                            
             </div>
         </div>

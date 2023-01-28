@@ -39,13 +39,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest                           
-                            @if (Route::has('register'))
+                        @auth                      
+                            @if (Route::has(''))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('house.register') }}">{{ __('【新規登録】物件所有者の方') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('guest.register') }}">{{ __('【新規登録】移住希望所有者の方') }}</a>
+                                    <a class="nav-link" href="{{ route('house.register') }}">{{ __('ユーザーアイコン') }}</a>
                                 </li>
                             @endif
                         @else
@@ -66,14 +63,14 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endauth
                     </ul>
                 </div>
             </div>
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('maincontent')
         </main>
     </div>
 </body>
