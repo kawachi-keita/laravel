@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function redirectPath()
     {
         /**　ログイン後メインページに飛ぶ */
-        return '/house_main';
+        return 'house.main';
     }
 
     /**

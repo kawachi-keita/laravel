@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'image' => ['string', 'max:1024','mimes:jpg,jpeg,png,gif'],
+            'image' => ['max:1024','mimes:jpg,jpeg,png,gif'],
             'profile' => ['required', 'string', 'max:300'],
             'role' => ['required', 'integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -60,16 +60,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function upload(Request $request)
-    {
-        // ディレクトリ名
-        $dir = 'icon';
-
-        // iconディレクトリに画像を保存
-        $request->file('image')->store('public/' . $dir);
-
-        return redirect('/');
-    }
    
 
     /**
@@ -78,15 +68,28 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create($data)
     {
+        //vendorのRegisterUser.phpを一部修正。板橋さん確認
+        if(!is_null($data->image)){
+            // ディレクトリ名
+            $dir = 'icon';
+    
+            // アップロードされたファイル名を取得
+            $file_name = $data->file('image')->getClientOriginalName();
+    
+            // 取得したファイル名で保存
+            $data->file('image')->storeAs('public/' . $dir, $file_name);
+    
+            }
+
         return User::create([
-            'name' => $data['name'],
-            'image' => $data['image'] ?? null,
-            'profile' => $data['profile'],
-            'role' => $data['role'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $data->name,
+            'image' => !empty($data->image) ? $file_name : null,
+            'profile' => $data->profile,
+            'role' => $data->role,
+            'email' => $data->email,
+            'password' => Hash::make($data->password),
         ]);
     }
 }

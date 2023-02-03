@@ -1,6 +1,5 @@
-@extends('layouts.header')
-@section('maincontent')
-
+@extends('layouts.app')
+@section('content')
 
     <div class="d-flex flex-row">
         <div class="card mx-auto">

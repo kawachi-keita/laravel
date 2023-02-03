@@ -13,9 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     新規登録が完了しました！
                 </div>
+                
                 
                            
             </div>
