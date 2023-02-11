@@ -32,7 +32,12 @@ class CreateHousesTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
+
+
+
+
 
     /**
      * Reverse the migrations.

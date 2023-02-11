@@ -23,8 +23,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/register','RegistController@houseRegister')->name('house.register');
 Route::get('/guest/register','RegistController@guestRegister')->name('guest.register');
 Route::get('/house/mypage','HomeController@getMypage')->name('house.mypage');
-Route::get('/house/entry','HomeController@getEntry')->name('house.entry');
+Route::post('/house/conf','HouseController@getConf')->name('house.conf'); //物件新規登録確認用
+// Route::resource('/house/main', 'UsersController', ['only' => ['show']]);
 Route::resource('/house', 'HouseController');
+// Route::get('/house/entry','HomeController@getEntry')->name('house.entry');
+// Route::get('/house/comp','HomeController@getComp')->name('house.comp');
 //Route::get('/house/main','DisplayController@index')->name('house.main');
 
 //パスワードリセット

@@ -53,7 +53,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{route('house.mypage')}}"><img src="{{ asset('storage/icon/' . Auth::user()->image) }}"></a>
+                                <a href="{{route('house.mypage')}}"><img src="{{ asset('storage/icon/' . Auth::user()->image) }}" class="img-circle" width="50" height="50"></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

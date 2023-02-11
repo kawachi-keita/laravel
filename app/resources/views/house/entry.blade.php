@@ -6,59 +6,151 @@
             <div class="card-header text-center">{{ __('物件情報登録') }}</div>
         </div>
     </div>
+    <!-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif -->
     <div class="container mt-5">
-        <div class="d-flex justify-content-between">
-            <form>
+        <form method="POST" action="{{ route('house.conf') }}" enctype="multipart/form-data">
+            @csrf
+            <div class="d-flex justify-content-between">
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">物件画像</label>
-                    <input type="file" class="form-control-file " id="exampleFormControlFile1">
-                    <input type="file" class="form-control-file mt-4" id="exampleFormControlFile2">
-                    <input type="file" class="form-control-file mt-4" id="exampleFormControlFile3">
+                    <label for="image">物件画像</label>
+                    <div>
+                        <input id="image1" type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" value="{{ old('image1') }}"  autocomplete="image1" autofocus>
+                        @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div>
+                        <input id="image2" type="file" class="form-control mt-4 @error('image2') is-invalid @enderror" name="image2" value="{{ old('image2') }}"  autocomplete="image2" autofocus>
+                        @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div>
+                        <input id="image3" type="file" class="form-control mt-4 @error('image3') is-invalid @enderror" name="image3" value="{{ old('image3') }}"  autocomplete="image3" autofocus>
+                        @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
-            </form>
-            <div class="col-md-7 mx-center">
-                <form>
+            
+                <div class="col-md-7 mx-center">
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">物件名</label>
+                        <label for="name" class="col-sm-2 col-form-label">物件名</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">物件住所</label>
+                        <label for="adress" class="col-sm-2 col-form-label">物件住所</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input id="adress" type="text" class="form-control @error('adress') is-invalid @enderror" name="adress" value="{{ old('adress') }}" required autocomplete="adress" autofocus>
+                            @error('adress')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">価格</label>
+                        <label for="amount" class="col-sm-2 col-form-label">価格</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>
+                            @error('amount')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- プルダウン -->
+                    <!-- <div class="form-group row">
+                        <label for="size" class="col-sm-2 col-form-label">広さ</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="size" name="size" value="{{ old('size') }}" required autocomplete="size" autofocus>
+                                <option>40㎡以下</option>
+                                <option>41~50㎡</option>
+                                <option>51~60㎡</option>
+                                <option>61~70㎡</option>
+                                <option>71~80㎡</option>
+                                <option>81~90㎡</option>
+                                <option>100㎡以上</option>
+                            </select>
+                        </div>
+                    </div> -->
+                    <div class="form-group row">
+                        <label for="size" class="col-sm-2 col-form-label">広さ</label>
+                        <div class="col-sm-10">
+                            <input id="size" type="text" class="form-control @error('size') is-invalid @enderror" name="size" value="{{ old('size') }}" required autocomplete="size" autofocus>
+                            @error('size')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">広さ・間取り</label>
+                        <label for="layout" class="col-sm-2 col-form-label">間取り</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <input id="layout" type="text" class="form-control @error('layout') is-invalid @enderror" name="layout" value="{{ old('layout') }}" required autocomplete="layout" autofocus>
+                            @error('layout')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <form>
-            <div class="form-group">
-                    <label for="exampleFormControlTextarea1">物件の紹介</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-        </form>
-        <form>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">周辺情報</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
+            <div class="d-flex justify-content-center">
+                <div class="form-group col-md-6">
+                    <label for="comment">物件の紹介</label>
+                    <div>
+                        <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment"  value="{{ old('comment') }}" required autocomplete="comment" autofocus></textarea>
 
-            <button type="submit" class="btn btn-primary">戻る</button>
-            <button type="submit" class="btn btn-primary">確認</button>
+                        @error('comment')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+        
+                <div class="form-group col-md-6">
+                    <label for="information">周辺情報</label>
+                    <div>
+                        <textarea id="information" class="form-control @error('information') is-invalid @enderror" name="information"  value="{{ old('information') }}" required autocomplete="information" autofocus></textarea>
+
+                        @error('information')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary w-25" onClick="history.back()">戻る</button>
+                <button type="submit" class="btn btn-primary w-25">確認</button>
+            </div> 
         </form>
     </div>
 

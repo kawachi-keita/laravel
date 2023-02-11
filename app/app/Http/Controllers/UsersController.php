@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\House;
 use App\User;
 
-class HouseController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,10 @@ class HouseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    // {  
-         
-    //     // $house = House::orderBy('created_at', 'desc')->get();
-    //     // return view('house.main')->with(['house' => $house]);
-    // }
     {
-        return view('house.mypage');
+        //
     }
-      
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,39 +27,8 @@ class HouseController extends Controller
      */
     public function create()
     {
-        return view('house.entry');
+        //
     }
-
-    public function getConf(Request $request)
-    {
-        $validatedData = $request->validate([
-            'image1' => 'required|max:1024|mimes:jpg,jpeg,png,gif',
-            'image2' => 'required|max:1024|mimes:jpg,jpeg,png,gif',
-            'image3' => 'required|max:1024|mimes:jpg,jpeg,png,gif',
-            'name' => 'required',
-            'adress' => 'required',
-            'amount' => 'required',
-            'size' => 'required',
-            'layout' => 'required',
-            'information' => 'required',
-            'comment' => 'required',
-
-        ]);
-
-        // ディレクトリ名
-        $dir = 'images';
-        $columns = ['image1','image2','image3'];
-        foreach($columns as $column) {
-            // アップロードされたファイル名を取得
-            $file_name = $request->file($column)->getClientOriginalName();
-
-            // 取得したファイル名で保存
-            $request->file($column)->storeAs('public/' . $dir, $file_name);
-            $request->$column=$file_name;
-        }
-        return view('house.conf',['input'=>$request]);
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -74,15 +38,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        $house = new House;
-        $columns = [ 'name', 'adress', 'amount', 'size', 'layout', 'information','comment', 'image1','image2','image3',];
-        foreach($columns as $column) {
-            $house->$column = $request->$column;
-        }
-        Auth::user()->house()->save($house);
-
-        return redirect('/house/mypage')->with('flash_message', '投稿が完了しました');
-        
+        //
     }
 
     /**

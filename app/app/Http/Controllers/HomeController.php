@@ -48,19 +48,8 @@ class HomeController extends Controller
         }
 
     }
-    public function getEntry()
-    {
-        if(Auth::user()->role ==1){
-            return view('house.entry');
-        }
-        elseif(Auth::user()->role ==2){
-            return view('guest.entry');
-        }
-        else{
-            return view();
-        }
-
-    }
+    
+    
 
     
    

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    @if (session('flash_message'))  
+        <div class="flash_message bg-success text-center py-3 my-0">
+            {{ session('flash_message') }}
+        </div>
+    @endif
     <div class="container">
         <div class="d-flex justify-content-between">
             <div class="user col-md-5 mx-center">
@@ -13,11 +18,10 @@
                         <tr><td>{{ Auth::user()->profile }}</td></tr>
                     </tbody>
                     </table>
-            
             </div>
 
             <div class="btn-group-vertical">
-                <a href="{{route('house.entry')}}" class="btn btn-success mt-2">新規投稿</a>
+                <a href="{{route('house.create')}}" class="btn btn-success mt-2">新規投稿</a>
                 <a href="" class="btn btn-success mt-2">お気に入り物件一覧</a>
                 <a href="" class="btn btn-success mt-2">ユーザー情報編集</a>
             </div>

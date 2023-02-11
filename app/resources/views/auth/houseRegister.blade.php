@@ -43,7 +43,7 @@
                             <label for="profile" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="profile" class="form-control @error('name') is-invalid @enderror" name="profile" required autocomplete="profile" autofocus></textarea>
+                                <textarea id="profile" class="form-control @error('profile') is-invalid @enderror" name="profile" required autocomplete="profile" autofocus></textarea>
 
                                 @error('profile')
                                     <span class="invalid-feedback" role="alert">
