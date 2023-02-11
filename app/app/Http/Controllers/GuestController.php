@@ -3,9 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\House;
+use App\User;
+use App\Like;
 
 class GuestController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function($request,$next){
+            if(Auth::user()->role !== 2){
+                abort(404);
+            }
+            return $next($request);
+        });
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +29,10 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+        // $houses = House::where('user_id', $user->id) //$userによる投稿を取得
+        $houses = House::orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+                        ->paginate(20); // ページネーション; 
+        return view('guest.main', ['houses' => $houses,]);
     }
 
     /**

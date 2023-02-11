@@ -11,25 +11,20 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
-// Route::get('/', function () {
-//     return view('house_main');
-// });
+Route::group(['middleware' => ['auth']], function () {
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/register','RegistController@houseRegister')->name('house.register');
 Route::get('/guest/register','RegistController@guestRegister')->name('guest.register');
 Route::get('/house/mypage','HomeController@getMypage')->name('house.mypage');
 Route::post('/house/conf','HouseController@getConf')->name('house.conf'); //物件新規登録確認用
-// Route::resource('/house/main', 'UsersController', ['only' => ['show']]);
-Route::resource('/house', 'HouseController');
-// Route::get('/house/entry','HomeController@getEntry')->name('house.entry');
-// Route::get('/house/comp','HomeController@getComp')->name('house.comp');
-//Route::get('/house/main','DisplayController@index')->name('house.main');
-
+Route::resource('house', 'HouseController');
+Route::resource('guest', 'GuestController');
+Route::resource('user', 'UsersController');
+//「ajaxlike.jsファイルのurl:'ルーティング'」に書くものと合わせる。
+Route::post('ajaxlike', 'LikeController@ajaxlike')->name('ajaxlike');
+});
 //パスワードリセット
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');

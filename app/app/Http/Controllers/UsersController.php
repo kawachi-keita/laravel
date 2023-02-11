@@ -49,14 +49,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $user = User::find($user->id); //idが、リクエストされた$userのidと一致するuserを取得
-        $houses = House::where('user_id', $user->id) //$userによる投稿を取得
-            ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
-            ->paginate(10); // ページネーション; 
-        return view('house.main', [
-            'name' => $name->name, // $user名をviewへ渡す
-            'houses' => $houses, // $userの書いた記事をviewへ渡す
-        ]);
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -65,9 +58,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -77,9 +70,34 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'image' => 'mimes:jpg,jpeg,png,gif',
+            'name' => 'required',
+            'email' => 'required',
+            'profile' => 'required',
+        ]);
+
+        //画像があれば処理を行う
+        if($request->hasFile('image') && $user->image !== $request->image){
+           // アップロードされたファイル名を取得
+           $file_name = $request->file('image')->getClientOriginalName();
+
+           // 取得したファイル名で保存
+           $request->file('image')->storeAs('public/icon/', $file_name);
+           $user->image=$file_name;
+        }
+    
+
+        $columns = [ 'name', 'email', 'profile'];
+        foreach($columns as $column) {
+            $user->$column = $request->$column;
+        }
+        $user->save();
+        return redirect()->route('house.mypage')->with('flash_message', 'ユーザー情報の編集が完了しました');
+
+
     }
 
     /**
