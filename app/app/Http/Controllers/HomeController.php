@@ -47,6 +47,9 @@ class HomeController extends Controller
             return view('house.mypage', ['houses' => $houses,]);
         }
         elseif(Auth::user()->role ==2){
+            $houses=Auth::user()->likeHouses()
+                ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+                ->paginate(10); // ページネーション;
             return view('guest.mypage', ['houses' => $houses,]);
         }
     }
@@ -62,6 +65,10 @@ class HomeController extends Controller
             return view();
         }
 
+    }
+    public function serchPage()
+    {
+        return view('house.serch');
     }
     
     

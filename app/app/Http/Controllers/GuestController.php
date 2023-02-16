@@ -29,7 +29,6 @@ class GuestController extends Controller
      */
     public function index()
     {
-        // $houses = House::where('user_id', $user->id) //$userによる投稿を取得
         $houses = House::orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
                         ->paginate(20); // ページネーション; 
         return view('guest.main', ['houses' => $houses,]);
@@ -64,7 +63,14 @@ class GuestController extends Controller
      */
     public function show($id)
     {
-        //
+        $house=House::findOrFail($id);
+        $houseLikesCount = Like::with('house')->count();
+        $bool = Like::like_exist(Auth::id(), $house->id);
+        return view('guest.show', [
+            'house' => $house,
+            'likesCount' => $houseLikesCount,
+            'bool' => $bool
+        ]);
     }
 
     /**

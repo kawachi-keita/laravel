@@ -50,7 +50,10 @@ class User extends Authenticatable
     }
 
     public function houses() {
-        return $this->hasMany('App\House');
+        return $this->hasMany('App\House'); //一対多
+    }
+    public function likeHouses() {
+        return $this->belongsToMany('App\House','likes','user_id','house_id'); //多対多
     }
     public function likes() {
         return $this->hasMany('App\Like');
