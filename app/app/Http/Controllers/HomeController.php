@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\House;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -33,7 +34,7 @@ class HomeController extends Controller
             return redirect()->action('GuestController@index');
         }
         else{
-            return view();
+            return redirect('AdminController@index');
         }
 
     }
@@ -50,30 +51,16 @@ class HomeController extends Controller
             $houses=Auth::user()->likeHouses()
                 ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
                 ->paginate(10); // ページネーション;
-            return view('guest.mypage', ['houses' => $houses,]);
+                $posts=Post::leftJoin('houses','posts.house_id','=','houses.id')
+                ->where('posts.user_id',Auth::id())
+                ->get();
+            return view('guest.mypage', [
+                'houses' => $houses,
+                'posts' => $posts,
+            
+            ]);
         }
     }
-    public function userEdit()
-    {
-        if(Auth::user()->role ==1){
-            return view('user.edit');
-        }
-        elseif(Auth::user()->role ==2){
-            return view('');
-        }
-        else{
-            return view();
-        }
 
-    }
-    public function serchPage()
-    {
-        return view('house.serch');
-    }
-    
-    
-
-    
-   
     
 }

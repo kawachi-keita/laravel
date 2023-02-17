@@ -7,8 +7,9 @@
         </div>
     </div>
     <div class="container mt-5 ">
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('post.complete') }}">
             @csrf
+                <input type="hidden" name="house_id" value="{{ $input['house_id'] }}">
                 <div class="mx-center">
                     <div class="form-group">
                         <label for="date_at" class="col-sm-2 col-form-label">申込日付</label>

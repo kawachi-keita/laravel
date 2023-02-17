@@ -6,9 +6,48 @@
             <div class="card-header text-center">{{ __('物件申込画面') }}</div>
         </div>
     </div>
+    <div class="d-flex justify-content-between">
+        <div class="house-group">
+            <label for="image">物件画像</label>
+            @if($house->image1)
+                <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image1) }}" alt="画像を表示できません" width="auto" height="230px" role="img" aria-label="Placeholder: Image cap">
+            @else
+                <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/dummy.png') }}" alt="画像を表示できません" width="auto" height="230px" role="img" aria-label="Placeholder: Image cap">
+            @endif
+        </div>
+    
+        <div class="col-md-7 mx-center">
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">{{ $house->name }}</label>
+            </div>
+            <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">{{ $house->address }}</label>
+            </div>
+            <div class="form-group row">
+                <label for="amount" class="col-sm-2 col-form-label">{{ $house->amount }}万円</label>
+            </div>
+            <div class="form-group row">
+                <label for="size" class="col-sm-2 col-form-label">{{ $house->size }}㎡</label>
+            </div>
+            <div class="form-group row">
+                <label for="layout" class="col-sm-2 col-form-label">{{ $house->layout }}</label>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="form-group col-md-6">
+            <label for="comment">{{ $house->comment }}</label>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="information">{{ $house->information }}</label>
+        </div>
+    </div>
+
     <div class="container mt-5">
         <form method="POST" action="{{ route('post.conf') }}">
             @csrf
+            <input type="hidden" name="house_id" value="{{ $house->id }}">
             <div class="d-flex justify-content-center">
                 <div class="col-md-7 mx-center">
                     <div class="form-group">

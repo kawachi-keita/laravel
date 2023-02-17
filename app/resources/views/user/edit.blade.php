@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <div class="card mx-auto">
+            <div class="card mx-auto">
                 <div class="card-header text-center">{{ __('ユーザー情報編集ページ') }}</div>
 
                 <div class="card-body">
@@ -68,12 +68,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('編集') }}
-                                </button>
-                            </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary mr-4" onClick="history.back()">戻る</button>
+                            <button type="submit" class="btn btn-primary">{{ __('編集') }}</button>
                         </div>
                     </form>
                 </div>

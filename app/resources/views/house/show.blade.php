@@ -19,7 +19,12 @@
 
             <div class="card-body">
                 <h5 class="card-title">{{ $house->name }}</h5>
+                <p class="card-text">{{ $house->amount }}万円</p>
+                <p class="card-text">{{ $house->address }}</p>
+                <p class="card-text">{{ $house->size }}㎡</p>
+                <p class="card-text">{{ $house->layout }}</p>
                 <p class="card-text">{{ $house->comment }}</p>
+                <p class="card-text">{{ $house->information }}</p>
             </div>
             @if($bool)
             <p class="favorite-marke">

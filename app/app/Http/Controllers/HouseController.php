@@ -34,6 +34,8 @@ class HouseController extends Controller
                         ->paginate(20); // ページネーション; 
         return view('house.main', ['houses' => $houses,]);
     }
+
+   
       
     /**
      * Show the form for creating a new resource.
@@ -52,7 +54,7 @@ class HouseController extends Controller
             'image2' => 'required|mimes:jpg,jpeg,png,gif',
             'image3' => 'required|mimes:jpg,jpeg,png,gif',
             'name' => 'required',
-            'adress' => 'required',
+            'address' => 'required',
             'amount' => 'required',
             'size' => 'required',
             'layout' => 'required',
@@ -75,6 +77,11 @@ class HouseController extends Controller
         return view('house.conf',['input'=>$request]);
     }
 
+    public function favorite()
+    {
+        return view('house.favorite');
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -85,7 +92,7 @@ class HouseController extends Controller
     public function store(Request $request)
     {
         $house = new House;
-        $columns = [ 'name', 'adress', 'amount', 'size', 'layout', 'information','comment', 'image1','image2','image3',];
+        $columns = [ 'name', 'address', 'amount', 'size', 'layout', 'information','comment', 'image1','image2','image3',];
         foreach($columns as $column) {
             $house->$column = $request->$column;
         }
@@ -139,7 +146,7 @@ class HouseController extends Controller
             'image2' => 'mimes:jpg,jpeg,png,gif',
             'image3' => 'mimes:jpg,jpeg,png,gif',
             'name' => 'required',
-            'adress' => 'required',
+            'address' => 'required',
             'amount' => 'required',
             'size' => 'required',
             'layout' => 'required',
@@ -165,7 +172,7 @@ class HouseController extends Controller
         }
     
 
-        $columns = [ 'name', 'adress', 'amount', 'size', 'layout', 'information','comment'];
+        $columns = [ 'name', 'address', 'amount', 'size', 'layout', 'information','comment'];
         foreach($columns as $column) {
             $house->$column = $request->$column;
         }

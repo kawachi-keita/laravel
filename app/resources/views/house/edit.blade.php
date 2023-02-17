@@ -55,10 +55,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="adress" class="col-sm-2 col-form-label">物件住所</label>
+                        <label for="address" class="col-sm-2 col-form-label">物件住所</label>
                         <div class="col-sm-10">
-                            <input id="adress" type="text" class="form-control @error('adress') is-invalid @enderror" name="adress" value="{{ old('adress',$house->adress) }}" required autocomplete="adress" autofocus>
-                            @error('adress')
+                            <input id="address" type="text" class="form-control @error('adress') is-invalid @enderror" name="address" value="{{ old('address',$house->address) }}" required autocomplete="address" autofocus>
+                            @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -142,9 +142,9 @@
                         </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary w-25" onClick="history.back()">戻る</button>
-                <button type="submit" class="btn btn-primary w-25">確認</button>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary w-25 mr-5" onClick="history.back()">戻る</button>
+                <button type="submit" class="btn btn-primary w-25 ml-5">編集する</button>
             </div> 
         </form>
     </div>

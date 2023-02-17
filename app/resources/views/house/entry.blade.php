@@ -60,10 +60,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="adress" class="col-sm-2 col-form-label">物件住所</label>
+                        <label for="address" class="col-sm-2 col-form-label">物件住所</label>
                         <div class="col-sm-10">
-                            <input id="adress" type="text" class="form-control @error('adress') is-invalid @enderror" name="adress" value="{{ old('adress') }}" required autocomplete="adress" autofocus>
-                            @error('adress')
+                            <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                            @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

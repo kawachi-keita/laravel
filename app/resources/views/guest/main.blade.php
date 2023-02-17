@@ -1,11 +1,64 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="d-flex justify-content-center">
-    <div class="mx-auto">
-        <a href="{{ route('house.serch') }}" class="btn btn-info btn-lg mt-4">物件検索</a>
+<div class="">
+    <div class="mx-5 p-5 row justify-content-center" style="margin:0 auto;">
+        <div class="col-md-10">
+        <div class="row justify-content-center">
+            <form method="POST" action="{{ route('house.search') }}">
+                @csrf
+                <div class="form-row">
+                    <div class="form-group col-md-6 ">
+                        <label for="amount">金額</label>
+                        <div class="d-flex justify-content-space-between">
+                        <div>
+                            <input type="number" class="form-control" id="amount" name="amount_row" placeholder="入力値100->100万円です">万円
+                        </div>
+                        ~
+                        <div>
+                            <input type="number" class="form-control" id="amount" name="amount_high" placeholder="入力値100->100万円です">万円
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 ">
+                        <label for="size">広さ</label>
+                        <div class="d-flex justify-content-space-between">
+                        <div>
+                            <input type="number" class="form-control" id="size" name="size_row" placeholder="入力値100->100万円です">㎡
+                        </div>
+                        ~
+                        <div>
+                            <input type="number" class="form-control" id="size" name="size_high" placeholder="入力値100->100万円です">㎡
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="layout">間取り</label>
+                        <div class="d-flex justify-content-space-between">
+                        <div>
+                            <input type="number" class="form-control" id="layout" name="layout_row" placeholder="入力値100->100万円です">
+                        </div>
+                        ~
+                        <div>
+                            <input type="number" class="form-control" id="layout" name="layout_high" placeholder="入力値100->100万円です">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">住所</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="東京都">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="free">フリーワード</label>
+                        <input type="text" class="form-control" id="free" name="free" placeholder="東京都">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-info btn-lg mx-auto">物件検索</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+    </div>
 
 <div class="mx-5 p-5">
     <div class="mx-5">

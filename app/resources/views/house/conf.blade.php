@@ -35,10 +35,10 @@
                            </div>
                     </div>
                     <div class="form-group row">
-                        <label for="adress" class="col-sm-2 col-form-label">物件住所</label>
-                        <p>{{ $input['adress'] }}</p>
+                        <label for="address" class="col-sm-2 col-form-label">物件住所</label>
+                        <p>{{ $input['address'] }}</p>
                         <div class="col-sm-10">
-                            <input id="adress" type="hidden" class="form-control" name="adress" value="{{ $input->adress }}" required autocomplete="adress" autofocus>
+                            <input id="address" type="hidden" class="form-control" name="address" value="{{ $input->address }}" required autocomplete="address" autofocus>
                             </div>
                     </div>
                     <div class="form-group row">

@@ -34,6 +34,19 @@ class GuestController extends Controller
         return view('guest.main', ['houses' => $houses,]);
     }
 
+    public function search(Request $request)
+    {
+        $houses = House::houseSearch($request->all())
+                         ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+                         ->paginate(20); // ページネーション; 
+        return view('guest.main', ['houses' => $houses,]);
+     }
+
+     public function favorite()
+    {
+        return view('guest.favorite');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +54,7 @@ class GuestController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**

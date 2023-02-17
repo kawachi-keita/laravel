@@ -17,7 +17,7 @@ class CreateHousesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('name','100');
-            $table->string('adress','100');
+            $table->string('address','100');
             $table->string('lomgitude','100');
             $table->string('atitude','100');
             $table->integer('amount');

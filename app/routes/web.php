@@ -18,11 +18,14 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/register','RegistController@houseRegister')->name('house.register');
 Route::get('/guest/register','RegistController@guestRegister')->name('guest.register');
 Route::get('/house/mypage','HomeController@getMypage')->name('house.mypage');
-Route::get('/house/serch','HomeController@serchPage')->name('house.serch');
 Route::post('/house/conf','HouseController@getConf')->name('house.conf'); //物件新規登録確認用
-Route::get('/post/create','PostController@create')->name('post.create');
+Route::post('/house/search','GuestController@search')->name('house.search');
+Route::get('/house/favorite','HouseController@favorite')->name('house.favorite'); 
+Route::get('/guest/favorite','GuestController@favorite')->name('guest.favorite'); 
+
+Route::get('/post/create/{houseId}','PostController@create')->name('post.create');
 Route::post('/post/conf','PostController@conf')->name('post.conf'); 
-Route::post('/post/complete','PostController@complete')->name('post.compleate'); 
+Route::post('/post/complete','PostController@complete')->name('post.complete'); 
 
 Route::resource('house', 'HouseController');
 Route::resource('guest', 'GuestController');

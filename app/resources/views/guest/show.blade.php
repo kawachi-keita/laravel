@@ -4,7 +4,7 @@
 <div class="mx-5 p-5">
     <div class="mx-5">
         <div class="card mx-auto">
-            <div class="card-header text-center">{{ __('物件一覧') }}</div>
+            <div class="card-header text-center">{{ __('物件情報詳細') }}</div>
         </div>
         <div class="d-flex flex-wrap m-auto">
     
@@ -17,7 +17,13 @@
 
             <div class="card-body">
                 <h5 class="card-title">{{ $house->name }}</h5>
+                <h5 class="card-title">{{ $house->adress }}</h5>
+                <p class="card-text">{{ $house->amount }}万円</p>
+                <p class="card-text">{{ $house->size }}㎡</p>
+                <p class="card-text">{{ $house->layout }}</p>
                 <p class="card-text">{{ $house->comment }}</p>
+                <p class="card-text">{{ $house->information }}</p>
+
             </div>
             @if($bool)
             <p class="favorite-marke">
@@ -30,9 +36,10 @@
             <span class="likesCount">{{ $likesCount }}</span>
             </p>
             @endif
+            <a href="{{route('post.create',['houseId'=>$house->id])}}" class="btn btn-success mt-2">お申込みへ</a>
         </div>
     </div>
-    <a href="{{route('post.create')}}" class="btn btn-success mt-2">新規投稿</a>
+   
 </div>
 @endsection
 
