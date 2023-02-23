@@ -6,14 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">登録が完了しました！</div>
-                <!-- <div class="card-body text-center">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    登録が完了しました！
-                </div> -->
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                    <a href="{{ url('/') }}" class="btn btn-success mr-5">TOPページに戻る</a>
+                    <a href="{{route('house.mypage')}}" class="btn btn-success ml-5">マイページに戻る</a>
             </div>
         </div>
     </div>

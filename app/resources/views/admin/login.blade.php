@@ -1,12 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
+
 <div class="container mt-5">
     <div class="d-flex justify-content-center">
         <div class="col-md-8">
             <div class="card mx-auto">
-                <div class="card-header text-center">{{ __('ログイン') }}</div>
-
+                <div class="card-header text-center">管理者ログイン</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -73,6 +72,7 @@
 </div>
 
 
-<a class="nav-link" href="{{ route('admin.login') }}">管理者用ログイン</a>
+
+
 
 @endsection

@@ -4,7 +4,7 @@
 <div class="mx-5 p-5">
     <div class="mx-5">
         <div class="card mx-auto">
-            <div class="card-header text-center">{{ __('物件一覧') }}</div>
+            <div class="card-header text-center">{{ __('物件詳細') }}</div>
         </div>
         <div class="d-flex flex-wrap m-auto">
     

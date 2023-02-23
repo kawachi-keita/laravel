@@ -50,7 +50,7 @@
                 <div class="col-md-7 mx-center">
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">物件名</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -72,8 +72,8 @@
                     </div>
                     <div class="form-group row">
                         <label for="amount" class="col-sm-2 col-form-label">価格</label>
-                        <div class="col-sm-10">
-                            <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>
+                        <div class="col-sm-6">
+                            <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>万円
                             @error('amount')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -98,8 +98,8 @@
                     </div> -->
                     <div class="form-group row">
                         <label for="size" class="col-sm-2 col-form-label">広さ</label>
-                        <div class="col-sm-10">
-                            <input id="size" type="text" class="form-control @error('size') is-invalid @enderror" name="size" value="{{ old('size') }}" required autocomplete="size" autofocus>
+                        <div class="col-sm-6">
+                            <input id="size" type="text" class="form-control @error('size') is-invalid @enderror" name="size" value="{{ old('size') }}" required autocomplete="size" autofocus>㎡
                             @error('size')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="layout" class="col-sm-2 col-form-label">間取り</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                             <input id="layout" type="text" class="form-control @error('layout') is-invalid @enderror" name="layout" value="{{ old('layout') }}" required autocomplete="layout" autofocus>
                             @error('layout')
                                 <span class="invalid-feedback" role="alert">

@@ -5,7 +5,7 @@
     <div class="mx-5 p-5 row justify-content-center" style="margin:0 auto;">
         <div class="col-md-10">
         <div class="row justify-content-center">
-            <form method="POST" action="{{ route('house.search') }}">
+            <form method="POST" action="{{ route('admin.searchHouse') }}">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6 ">
@@ -66,6 +66,7 @@
             <div class="card-header text-center">{{ __('物件一覧') }}</div>
         </div>
    
+        @if(!is_null($houses))
         <div class="d-flex flex-wrap m-auto">
             @foreach($houses as $house)
             <div class="card" style="width: 18rem;">
@@ -95,6 +96,7 @@
             <p>データがありません。</p>
             @endif 
         </div>
+        @endif
     </div>
 </div>
 @endsection

@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="amount" class="col-sm-2 col-form-label">価格</label>
-                        <p>{{ $input['amount'] }}</p>
+                        <p>{{ $input['amount'] }}</p>万円
                         <div class="col-sm-10">
                             <input id="amount" type="hidden" class="form-control" name="amount" value="{{ $input->amount }}" required autocomplete="amount" autofocus>
                            </div>
@@ -65,7 +65,7 @@
                     </div> -->
                     <div class="form-group row">
                         <label for="size" class="col-sm-2 col-form-label">広さ</label>
-                        <p>{{ $input['size'] }}</p>
+                        <p>{{ $input['size'] }}</p>㎡
                         <div class="col-sm-10">
                             <input id="size" type="hidden" class="form-control" name="size" value="{{ $input->size }}" required autocomplete="size" autofocus>
                         </div>

@@ -56,9 +56,11 @@
                             @endif
                         @else
                            
+                        @if( Auth::user()->role !== 0)
                             <li class="nav-item">
                                 <a href="{{route('house.mypage')}}"><img src="{{ asset('storage/icon/' . Auth::user()->image) }}" class="img-circle" width="50" height="50"></a>
                             </li>
+                        @endif
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

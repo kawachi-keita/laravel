@@ -25,10 +25,12 @@
                     </tbody>
                 </table>
             </div>
-            <div class="btn-group-vertical">
-                <a href="{{ route('house.create') }}" class="btn btn-success mt-2">新規投稿</a>
-                <a href="{{route('house.favorite')}}" class="btn btn-success mt-2">お気に入り物件一覧</a>
-                <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-success mt-2">ユーザー情報編集</a>
+            <div>
+                <div class="btn-group-vertical">
+                    <a href="{{ route('house.create') }}" class="btn btn-success mt-2">新規投稿</a>
+                    <a href="{{route('house.favorite')}}" class="btn btn-success mt-2">お気に入り物件一覧</a>
+                    <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-success mt-2">ユーザー情報編集</a>
+                </div>
             </div>
         </div>
     </div>

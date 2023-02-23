@@ -62,6 +62,21 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function scopeUserSearch($query, $data) //検索機能
+    {
+        if(!is_null($data['name'])){
+            $query->orWhere('name','like','%'.$data['name'].'%');
+        }
+        if(!is_null($data['email'])){
+            $query->orWhere('email','like','%'.$data['email'].'%');
+        }
+        if(!is_null($data['profile'])){
+            $query->orWhere('profile','like','%'.$data['profile'].'%');
+        }
+        return $query;
+
+    }
+
     
 
 }

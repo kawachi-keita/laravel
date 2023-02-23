@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\House;
+use App\User;
 use App\Post;
 
 class HomeController extends Controller
@@ -34,7 +35,7 @@ class HomeController extends Controller
             return redirect()->action('GuestController@index');
         }
         else{
-            return redirect('AdminController@index');
+            return redirect()->action('AdminController@index');
         }
 
     }
@@ -45,7 +46,10 @@ class HomeController extends Controller
             $houses = House::where('user_id', Auth::id())
                             ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
                             ->paginate(10); // ページネーション; 
-            return view('house.mypage', ['houses' => $houses,]);
+            return view('house.mypage', [
+                'houses' => $houses,
+                //'users' => $user,
+            ]);
         }
         elseif(Auth::user()->role ==2){
             $houses=Auth::user()->likeHouses()
@@ -55,6 +59,36 @@ class HomeController extends Controller
                 ->where('posts.user_id',Auth::id())
                 ->get();
             return view('guest.mypage', [
+                'houses' => $houses,
+                // 'users' => $user,
+                'posts' => $posts,
+            ]);
+        }
+    }
+    public function getFavorite()
+    {
+        
+        if(Auth::user()->role ==1){
+            $houses=Auth::user()->likeHouses()
+                ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+                ->paginate(10); // ページネーション;
+                $posts=Post::leftJoin('houses','posts.house_id','=','houses.id')
+                ->where('posts.user_id',Auth::id())
+                ->get();
+            return view('house.favorite', [
+                'houses' => $houses,
+                'posts' => $posts,
+            
+            ]);
+        }
+        elseif(Auth::user()->role ==2){
+            $houses=Auth::user()->likeHouses()
+                ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
+                ->paginate(10); // ページネーション;
+                $posts=Post::leftJoin('houses','posts.house_id','=','houses.id')
+                ->where('posts.user_id',Auth::id())
+                ->get();
+            return view('guest.favorite', [
                 'houses' => $houses,
                 'posts' => $posts,
             

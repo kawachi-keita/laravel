@@ -28,7 +28,6 @@ class HouseController extends Controller
      */
     public function index()
    {
-       
         // $houses = House::where('user_id', $user->id) //$userによる投稿を取得
         $houses = House::orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
                         ->paginate(20); // ページネーション; 

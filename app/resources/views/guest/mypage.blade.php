@@ -1,7 +1,16 @@
 @extends('layouts.app')
 @section('content')
+    @if (session('flash_message'))  
+        <div class="flash_message bg-success text-center py-3 my-0">
+            {{ session('flash_message') }}
+        </div>
+    @elseif (session('delete_message'))
+        <div class="alert alert-danger text-center py-3 my-0" role="alert">
+            {{ session('delete_message') }}
+        </div>
+    @endif
     <div class="container">
-        <div class="d-flex row">
+        <div class="d-flex aline-mddle">
             <div>
                 <img src="{{ asset('storage/icon/' . Auth::user()->image) }}" class="rounded-circle" width="150" height="150">
             </div>
@@ -16,9 +25,11 @@
                         </tbody>
                     </table>
             </div>
-            <div class="btn-group-vertical">
-                <a href="{{ route('guest.favorite') }}" class="btn btn-success mt-2">お気に入り物件一覧</a>
-                <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-success">ユーザー情報編集</a>
+            <div>
+                <div class="btn-group-vertical">
+                    <a href="{{ route('guest.favorite') }}" class="btn btn-success">お気に入り物件一覧</a>
+                    <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-success">ユーザー情報編集</a>
+                </div>
             </div>
         </div>
     </div>
@@ -47,4 +58,5 @@
             </div>
         </div>
     </div>
+   
 @endsection

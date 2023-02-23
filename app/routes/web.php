@@ -13,19 +13,28 @@
 
 
 Auth::routes();
-Route::group(['middleware' => ['auth']], function () {
-Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/register','RegistController@houseRegister')->name('house.register');
 Route::get('/guest/register','RegistController@guestRegister')->name('guest.register');
+Route::get('/admin/login','AdminController@login')->name('admin.login'); 
+Route::group(['middleware' => ['auth']], function () {
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/house/mypage','HomeController@getMypage')->name('house.mypage');
 Route::post('/house/conf','HouseController@getConf')->name('house.conf'); //物件新規登録確認用
 Route::post('/house/search','GuestController@search')->name('house.search');
-Route::get('/house/favorite','HouseController@favorite')->name('house.favorite'); 
-Route::get('/guest/favorite','GuestController@favorite')->name('guest.favorite'); 
+
+Route::get('/house/favorite','HomeController@getFavorite')->name('house.favorite');
+Route::get('/guest/favorite','HomeController@getFavorite')->name('guest.favorite');
 
 Route::get('/post/create/{houseId}','PostController@create')->name('post.create');
 Route::post('/post/conf','PostController@conf')->name('post.conf'); 
 Route::post('/post/complete','PostController@complete')->name('post.complete'); 
+
+
+Route::get('/admin','AdminController@index'); 
+Route::get('/admin/searchHouse','AdminController@searchHouse')->name('admin.searchHouse'); 
+Route::post('/admin/searchHouse','AdminController@adminSearchHouse')->name('admin.searchHouse'); 
+Route::get('/admin/searchUser','AdminController@searchUser')->name('admin.searchUser'); 
+Route::post('/admin/searchUser','AdminController@adminSearchUser')->name('admin.searchUser'); 
 
 Route::resource('house', 'HouseController');
 Route::resource('guest', 'GuestController');

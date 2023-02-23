@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="mx-5 p-5">
     <div class="mx-5">
         <div class="card mx-auto">
             <div class="card-header text-center">{{ Auth::user()->name }}のお気に入り物件一覧</div>
@@ -18,7 +19,6 @@
                     <h5 class="card-title">{{ $house->name }}</h5>
                     <p class="card-text">{{ $house->comment }}</p>
                 </div>
-            
             </div>
         @endforeach
         </div>
@@ -27,4 +27,5 @@
             {{ $houses->links() }}
         </div>
     </div>
+</div>
 @endsection
