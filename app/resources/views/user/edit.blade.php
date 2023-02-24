@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary mr-4" onClick="history.back()">戻る</button>
+                            <button type="button" class="btn btn-outline-primary mr-4" onClick="history.back()">戻る</button>
                             <button type="submit" class="btn btn-primary">{{ __('編集') }}</button>
                         </div>
                     </form>

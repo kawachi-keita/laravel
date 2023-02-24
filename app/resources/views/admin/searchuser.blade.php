@@ -48,8 +48,8 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                <th scope="row">{{ $user->id }}
-                <a href="{{ route('house.mypage', ['users' => $user['id']])) }}">#</a>
+                <th scope="row">
+                <a href="{{ route('admin.getUser', ['id' => $user['id']]) }}">{{ $user->id }}</a>
                 </th>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>

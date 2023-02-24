@@ -35,6 +35,8 @@ Route::get('/admin/searchHouse','AdminController@searchHouse')->name('admin.sear
 Route::post('/admin/searchHouse','AdminController@adminSearchHouse')->name('admin.searchHouse'); 
 Route::get('/admin/searchUser','AdminController@searchUser')->name('admin.searchUser'); 
 Route::post('/admin/searchUser','AdminController@adminSearchUser')->name('admin.searchUser'); 
+Route::get('/admin/{id}/showUser','AdminController@getUser')->name('admin.getUser'); 
+Route::get('/admin/{id}/showHouse','AdminController@getHouse')->name('admin.getHouse'); 
 
 Route::resource('house', 'HouseController');
 Route::resource('guest', 'GuestController');

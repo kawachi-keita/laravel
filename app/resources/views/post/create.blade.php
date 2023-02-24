@@ -1,121 +1,102 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="list mx-3 p-3">
+    <div class="mx-5 p-5">
         <div class="card mx-auto">
             <div class="card-header text-center">{{ __('物件申込画面') }}</div>
         </div>
-    </div>
-    <div class="mx-5 p-5">
-        <div class="d-flex">
-            <div class="house-group mr-5">
-                <dt class="">
-                    <label for="image">物件画像</label>
-                    @if($house->image1)
-                        <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image1) }}" alt="画像を表示できません" width="auto" height="230px" role="img" aria-label="Placeholder: Image cap">
-                    @else
-                        <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/dummy.png') }}" alt="画像を表示できません" width="auto" height="230px" role="img" aria-label="Placeholder: Image cap">
-                    @endif
-                </dt>  
+        <dt class="">
+            <label for="image">物件画像</label>
+        </dt>
+        <div class="d-flex justify-content-between">
+            <div class="">
+                @if($house->image1)
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image1) }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @else
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/dummy.png') }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @endif
             </div>
-        
-            <div class="col-md-6 mx-center">
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="name">物件名</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="name" class="ml-5">{{ $house->name }}</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="address">物件住所</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="address" class="ml-5">{{ $house->address }}</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="amount">価格</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="amount" class="ml-5">{{ $house->amount }}万円</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="size">広さ</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="size" class="ml-5">{{ $house->size }}㎡</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="layout">間取り</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="layout" class="ml-5">{{ $house->layout }}</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="comment">物件情報</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="comment" class="ml-5">{{ $house->comment }}</label>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-2">
-                        <label for="information">周辺情報</label>
-                    </dt>
-                    <dd class="col-10">
-                        <label for="information" class="ml-5">{{ $house->information }}</label>
-                    </dd>
-                </dl>
+            <div class="">
+                @if($house->image2)
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image2) }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @else
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/dummy.png') }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @endif
             </div>
-            <!-- <div class="col-md-7 mx-center">
-                <div class="form-group row">
-                    <label for="name">物件名</label>
-                    <label for="name" class="col-sm-2 col-form-label">{{ $house->name }}</label>
+            <div class="">
+                @if($house->image3)
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image3) }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @else
+                    <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/dummy.png') }}" alt="画像を表示できません" width="auto" height="280px" role="img" aria-label="Placeholder: Image cap">
+                @endif 
+            </div>
+        </div> 
+        <div class="mx-5 p-5">
+            <div class="d-flex justify-content-between mt-3">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="name">物件名</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="name" class="ml-5">{{ $house->name }}</label>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="address">物件住所</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="address" class="ml-5">{{ $house->address }}</label>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="amount">価格</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="amount" class="ml-5">{{ $house->amount }}万円</label>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="size">広さ</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="size" class="ml-5">{{ $house->size }}㎡</label>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="layout">間取り</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="layout" class="ml-5">{{ $house->layout }}</label>
+                        </dd>
+                    </dl>
                 </div>
-                <div class="form-group row">
-                    <label for="address">物件住所</label>
-                    <label for="address" class="col-sm-2 col-form-label">{{ $house->address }}</label>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="comment">物件情報</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="comment" class="ml-5">{{ $house->comment }}</label>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-2">
+                            <label for="information">周辺情報</label>
+                        </dt>
+                        <dd class="col-6">
+                            <label for="information" class="ml-5">{{ $house->information }}</label>
+                        </dd>
+                    </dl>
                 </div>
-                <div class="form-group row">
-                    <label for="amount">価格</label>
-                    <label for="amount" class="col-sm-2 col-form-label">{{ $house->amount }}万円</label>
-                </div>
-                <div class="form-group row">
-                    <label for="size">広さ</label>
-                    <label for="size" class="col-sm-2 col-form-label">{{ $house->size }}㎡</label>
-                </div>
-                <div class="form-group row">
-                    <label for="layout">間取り</label>
-                    <label for="layout" class="col-sm-2 col-form-label">{{ $house->layout }}</label>
-                </div>
-            </div> -->
+            </div>
         </div>
-
-
-
-        <!-- <div class="d-flex justify-content-center">
-            <div class="form-group col-md-6">
-                <label for="comment">物件情報</label>
-                <label for="comment">{{ $house->comment }}</label>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="information">周辺情報</label>
-                <label for="information">{{ $house->information }}</label>
-            </div>
-        </div> -->
-
-        <div class="container mt-5">
+       
+        <div class="container">
             <form method="POST" action="{{ route('post.conf') }}">
                 @csrf
                 <input type="hidden" name="house_id" value="{{ $house->id }}">
@@ -166,7 +147,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary mr-4" onClick="history.back()">戻る</button>
+                    <button type="button" class="btn btn-outline-primary mr-4" onClick="history.back()">戻る</button>
                     <button type="submit" class="btn btn-primary">確認画面へ</button>
                 </div>
             </form>

@@ -14,7 +14,7 @@ class Post extends Model
 
     public function house()
     {   //housesテーブルとのリレーションを定義するhouseメソッド
-        return $this->hasOne('App\House');
+        return $this->belongsTo('App\House');
     }
 
     public static function post_exist($user_id, $house_id){

@@ -110,7 +110,7 @@ class HouseController extends Controller
     public function show($id)
     {
         $house=House::findOrFail($id);
-        $houseLikesCount = Like::with('house')->count();
+        $houseLikesCount = Like::where('house_id',$house->id)->count();
         $bool = Like::like_exist(Auth::id(), $house->id);
         return view('house.show', [
             'house' => $house,

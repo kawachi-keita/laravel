@@ -3,7 +3,7 @@
 <div class="mx-5 p-5">
     <div class="mx-5">
         <div class="card mx-auto">
-            <div class="card-header text-center">{{ Auth::user()->name }}のお気に入り物件一覧</div>
+            <div class="card-header text-center">{{ Auth::user()->name }}さんのお気に入り物件一覧</div>
         </div>
         <div class="d-flex flex-wrap m-auto">
         @foreach($houses as $house)
@@ -26,6 +26,10 @@
         <div class="d-flex justify-content-center mb-5">
             {{ $houses->links() }}
         </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <a href="{{ url('/') }}" class="btn btn-outline-primary mr-5">TOPページに戻る</a>
+        <a href="{{route('house.mypage')}}" class="btn btn-outline-primary ml-5">マイページに戻る</a>
     </div>
 </div>
 @endsection

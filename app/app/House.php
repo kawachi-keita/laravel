@@ -17,9 +17,9 @@ class House extends Model
     public function likes() {
         return $this->hasMany('App\Like');
     }
-    public function posts() {
-        return $this->hasOne('App\Post');
-    }
+    // public function posts() {
+    //     return $this->hasOneThrough('App\Post','App\User');
+    // }
     public function scopeHouseSearch($query, $data) //検索機能
     {
         if(!is_null($data['amount_row'])){

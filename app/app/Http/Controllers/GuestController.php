@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\House;
 use App\User;
 use App\Like;
+use App\Post;
+
 
 class GuestController extends Controller
 {
@@ -78,12 +80,14 @@ class GuestController extends Controller
     public function show($id)
     {
         $house=House::findOrFail($id);
-        $houseLikesCount = Like::with('house')->count();
+        $houseLikesCount = Like::where('house_id',$house->id)->count();
         $bool = Like::like_exist(Auth::id(), $house->id);
+        $post = Post::where('user_id',Auth::id())->where('house_id',$house->id)->first();
         return view('guest.show', [
             'house' => $house,
             'likesCount' => $houseLikesCount,
-            'bool' => $bool
+            'bool' => $bool,
+            'post' => $post
         ]);
     }
 

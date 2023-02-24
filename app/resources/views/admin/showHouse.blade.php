@@ -63,55 +63,34 @@
                 </dl>
             </div>
         </div>
-        <div class="d-flex float-right">
-            @if($bool)
-            <p class="favorite-marke">
-            @if(Auth::id() !== $house->id)
-            <p class="js-like-toggle loved" data-houseid="{{ $house->id }}"><i class="fas fa-regular fa-star"></i></p>
-            @endif
-            <span class="likesCount">{{ $likesCount }}</span>
-            </p>
-            @else
-            <p class="favorite-marke">
-            @if(Auth::id() !== $house->id)
-            <p class="js-like-toggle" data-houseid="{{ $house->id }}"><i class="fas fa-regular fa-star"></i></p>
-            @endif
-            <span class="likesCount">{{ $likesCount }}</span>
-            </p>
-            @endif
-        </div>
     </div>
-</div>
-@if(Auth::id() == $house->user_id)
-<div class="d-flex justify-content-center">
-    <div>
-        <button type="button" class="btn btn-outline-primary mr-5" onClick="history.back()">戻る</button>
+
+    <!-- <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">id</th>
+            <th scope="col">ユーザー名</th>
+            <th scope="col">メールアドレス</th>
+            <th scope="col">プロフィール</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($users as $user)
+            <tr>
+                <th scope="row">
+                    <a href="{{ route('admin.getUser', ['id' => $user['id']]) }}">{{ $user->id }}</a>
+                </th>  
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->profile }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table> -->
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-primary mr-4" role="button" onClick="history.back()">戻る</button>
+        <a href="{{ url('/') }}" class="btn btn-outline-primary mr-5">TOPページに戻る</a>
     </div>
-    <form action="{{ route('house.destroy', $house->id) }}" method="POST">
-        @method('DELETE')
-        @csrf
-        <button type="submit" class="btn btn-danger mr-5" onClick="delete_alert(event);return false;">削除</button>
-    </form>
-    <a href="{{ route('house.edit', $house->id) }}">
-        <button class ='btn btn-primary'>編集</button>
-    </a>
+
 </div>
-@endif
 @endsection
-<script>
-
-function delete_alert(e){
-    if(!window.confirm('本当に削除しますか？')){
-        return false;
-    }
-    document.deleteform.submit();
-};
-
-
-</script>
-
-<style>
-    .loved i {
-        color: red !important;
-    }
-</style>

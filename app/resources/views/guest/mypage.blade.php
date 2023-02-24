@@ -27,8 +27,8 @@
             </div>
             <div>
                 <div class="btn-group-vertical">
-                    <a href="{{ route('guest.favorite') }}" class="btn btn-success">お気に入り物件一覧</a>
-                    <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-success">ユーザー情報編集</a>
+                    <a href="{{ route('guest.favorite') }}" class="btn btn-outline-info">お気に入り物件一覧</a>
+                    <a href="{{ route('user.edit',['user'=>Auth::id()]) }}" class="btn btn-outline-info">ユーザー情報編集</a>
                 </div>
             </div>
         </div>

@@ -50,4 +50,27 @@ class AdminController extends Controller
                          ->paginate(20); // ページネーション; 
         return view('admin.searchuser', ['users' => $users,]);
      }
+
+     public function getUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.showUser', ['user' => $user,]);
+    }
+
+     public function getHouse($id)
+    {
+        $house = House::findOrFail($id);
+        $users = User::join('posts','users.id','=','posts.user_id')
+        ->where('posts.house_id',$house->id)
+        ->select(
+            'users.id as id',
+            'users.neme',
+            'users.email',
+            'users.profile'
+        );
+        return view('admin.showHouse', [
+            'house' => $house,
+            'users' => $users,
+    ]);
+    }
 }

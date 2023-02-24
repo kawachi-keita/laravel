@@ -28,5 +28,9 @@
                 {{ $houses->links() }}
             </div>
         </div>
+        <div class="d-flex justify-content-center mt-5">
+                    <a href="{{ url('/') }}" class="btn btn-success mr-5">TOPページに戻る</a>
+                    <a href="{{route('house.mypage')}}" class="btn btn-success ml-5">マイページに戻る</a>
+        </div>
     </div>
 @endsection

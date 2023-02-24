@@ -76,21 +76,6 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- プルダウン -->
-                    <!-- <div class="form-group row">
-                        <label for="size" class="col-sm-2 col-form-label">広さ</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="size" name="size" value="{{ old('size') }}" required autocomplete="size" autofocus>
-                                <option>40㎡以下</option>
-                                <option>41~50㎡</option>
-                                <option>51~60㎡</option>
-                                <option>61~70㎡</option>
-                                <option>71~80㎡</option>
-                                <option>81~90㎡</option>
-                                <option>100㎡以上</option>
-                            </select>
-                        </div>
-                    </div> -->
                     <div class="form-group row">
                         <label for="size" class="col-sm-2 col-form-label">広さ</label>
                         <div class="col-sm-10">
@@ -113,33 +98,29 @@
                             @enderror
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="form-group col-md-6">
-                    <label for="comment">物件の紹介</label>
-                    <div>
-                        <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" required autocomplete="comment" autofocus>{{ old('comment',$house->comment) }}</textarea>
-
-                        @error('comment')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-        
-                <div class="form-group col-md-6">
-                    <label for="information">周辺情報</label>
-                    <div>
-                        <textarea id="information" class="form-control @error('information') is-invalid @enderror" name="information" required autocomplete="information" autofocus>{{ old('information',$house->information) }}</textarea>
-
-                        @error('information')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <div class="form-group row">
+                        <label for="comment" class="col-sm-2 col-form-label">物件の紹介</label>
+                        <div class="col-sm-10">
+                            <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" required autocomplete="comment" autofocus>{{ old('comment',$house->comment) }}</textarea>
+                            @error('comment')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+                    </div>
+            
+                    <div class="form-group row">
+                        <label for="information" class="col-sm-2 col-form-label">周辺情報</label>
+                        <div class="col-sm-10">
+                            <textarea id="information" class="form-control @error('information') is-invalid @enderror" name="information" required autocomplete="information" autofocus>{{ old('information',$house->information) }}</textarea>
+                            @error('information')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center">

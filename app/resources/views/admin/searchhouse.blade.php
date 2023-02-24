@@ -70,7 +70,7 @@
         <div class="d-flex flex-wrap m-auto">
             @foreach($houses as $house)
             <div class="card" style="width: 18rem;">
-                <a href="{{ route('guest.show',$house->id) }}" class="">
+                <a href="{{ route('admin.getHouse',$house->id) }}" class="">
                     @if($house->image1)
                     <img class="bd-placeholder-img card-img-top" src="{{ asset('storage/images/' . $house->image1) }}" alt="画像を表示できません" width="auto" height="230px" role="img" aria-label="Placeholder: Image cap">
                     @else
