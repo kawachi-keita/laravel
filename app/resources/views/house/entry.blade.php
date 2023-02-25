@@ -148,7 +148,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary w-25" onClick="history.back()">戻る</button>
+                <button type="button" class="btn btn-outline-primary w-25" onClick="history.back()">戻る</button>
                 <button type="submit" class="btn btn-primary w-25">確認</button>
             </div> 
         </form>

@@ -76,7 +76,7 @@ class UsersController extends Controller
             'image' => 'mimes:jpg,jpeg,png,gif',
             'name' => 'required',
             'email' => 'required',
-            'profile' => 'required',
+            'profile' => 'required|max:100',
         ]);
 
         //画像があれば処理を行う

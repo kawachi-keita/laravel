@@ -28,8 +28,8 @@
         </div>
     </div>
     <div class="d-flex justify-content-center mt-5">
-        <a href="{{route('house.mypage')}}" class="btn btn-outline-primary ml-5">マイページに戻る</a>
-        <a href="{{ url('/') }}" class="btn btn-outline-primary mr-5">TOPページに戻る</a>
+        <a href="{{route('house.mypage')}}" class="btn btn-outline-primary mr-5">マイページに戻る</a>
+        <a href="{{ url('/') }}" class="btn btn-outline-primary ml-5">TOPページに戻る</a>
     </div>
 </div>
 @endsection
