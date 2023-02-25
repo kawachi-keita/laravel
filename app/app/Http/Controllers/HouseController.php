@@ -52,13 +52,13 @@ class HouseController extends Controller
             'image1' => 'required|mimes:jpg,jpeg,png,gif',
             'image2' => 'required|mimes:jpg,jpeg,png,gif',
             'image3' => 'required|mimes:jpg,jpeg,png,gif',
-            'name' => 'required',
-            'address' => 'required',
+            'name' => 'required|max:100',
+            'address' => 'required|max:100',
             'amount' => 'required',
             'size' => 'required',
             'layout' => 'required',
-            'information' => 'required',
-            'comment' => 'required',
+            'information' => 'required|max:100',
+            'comment' => 'required|max:100',
 
         ]);
 

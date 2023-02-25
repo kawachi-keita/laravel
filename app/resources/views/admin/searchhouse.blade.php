@@ -36,21 +36,21 @@
                         <label for="layout">間取り</label>
                         <div class="d-flex justify-content-space-between">
                         <div>
-                            <input type="number" class="form-control" id="layout" name="layout_row" placeholder="1LDK,2LDK">
+                            <input type="number" class="form-control" id="layout" name="layout_row" placeholder="1LDK,2LDK etc">
                         </div>
                         ~
                         <div>
-                            <input type="number" class="form-control" id="layout" name="layout_high" placeholder="1LDK,2LDK">
+                            <input type="number" class="form-control" id="layout" name="layout_high" placeholder="1LDK,2LDK etc">
                         </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="address">住所</label>
-                        <input type="text" class="form-control" id="address" name="address" placeholder="東京都">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="東京都　etc">
                     </div>
                     <div class="form-group col-md-12">
                         <label for="free">フリーワード</label>
-                        <input type="text" class="form-control" id="free" name="free" placeholder="東京都">
+                        <input type="text" class="form-control" id="free" name="free" placeholder="ペット etc">
                     </div>
                     
                     <button type="submit" class="btn btn-info btn-lg mx-auto">物件検索</button>
