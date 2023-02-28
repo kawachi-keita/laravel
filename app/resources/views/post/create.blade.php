@@ -3,7 +3,7 @@
 @section('content')
     <div class="mx-5 p-5">
         <div class="card mx-auto">
-            <div class="card-header text-center">{{ __('物件申込画面') }}</div>
+            <div class="card-header text-center">{{ __('物件申込') }}</div>
         </div>
         <dt class="">
             <label for="image">物件画像</label>

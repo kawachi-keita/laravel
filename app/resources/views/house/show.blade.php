@@ -96,6 +96,11 @@
         <button class ='btn btn-primary'>編集</button>
     </a>
 </div>
+@else
+<div class="d-flex justify-content-center">
+        <a class="btn btn-outline-primary mr-4" role="button" onClick="history.back()">戻る</button>
+        <a href="{{ url('/') }}" class="btn btn-outline-primary mr-5">TOPページに戻る</a>
+</div>
 @endif
 @endsection
 <script>

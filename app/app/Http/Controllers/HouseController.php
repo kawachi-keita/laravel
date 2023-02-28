@@ -67,7 +67,7 @@ class HouseController extends Controller
         $columns = ['image1','image2','image3'];
         foreach($columns as $column) {
             // アップロードされたファイル名を取得
-            $file_name = $request->file($column)->getClientOriginalName();
+            $file_name = $request->file($column)->hashName();
 
             // 取得したファイル名で保存
             $request->file($column)->storeAs('public/' . $dir, $file_name);

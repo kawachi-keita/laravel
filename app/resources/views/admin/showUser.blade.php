@@ -73,7 +73,7 @@
             @endif
             </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-3">
             <a class="btn btn-outline-primary mr-4" role="button" onClick="history.back()">戻る</button>
             <a href="{{ url('/') }}" class="btn btn-outline-primary mr-5">TOPページに戻る</a>
         </div>
